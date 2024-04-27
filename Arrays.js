@@ -133,5 +133,27 @@ function positiveDom(arr) {
 
 }
 
+/**Given an array, return a shorter array following these steps:
+- Split the array into two equal parts*. If unequal, remove the middle element to obtain two equal arrays.
+- Sum each number of the first part with the inverse numbers of the second part.
+- Divide each number of the resulting array by 2. */
+
 console.log(positiveDom([-1, -3, -5, 4, 6767]));
 
+function cortar(arr) {
+    var largo = arr.length;
+    var mitad = Math.floor(largo/ 2);
+    
+    var primera = arr.slice(0, mitad);
+    var segunda = arr.slice(mitad);
+    
+    var res = [];
+    for (var i = 0; i < mitad; i++) {
+      res.push((primera[i] + (1 / segunda[i])) / 2);
+    }
+    
+    return res;
+  }
+  
+  console.log(cortar([1, 2, 3, 5, 22, 6])); 
+  
